@@ -1,3 +1,105 @@
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8f0;
+  color: #333;
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px;
+  margin: 0 auto;
+}
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+header h1 {
+  font-size: 2rem;
+  color: #d35400;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 2px #f6b26b;
+}
+header p {
+  font-size: 1rem;
+  color: #7a7a7a;
+  font-weight: 500;
+}
+main {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Novo contêiner para os cartões de receita */
+.recipe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Estilos para os cartões de receita */
+.recipe-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: calc(25% - 0.5rem); /* 4 cartões na linha superior */
+}
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+.recipe-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 3px solid #d35400;
+}
+.recipe-content {
+  padding: 0.75rem 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.recipe-title {
+  font-size: 1.25rem;
+  color: #e26707;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.recipe-desc {
+  font-size: 0.9rem;
+  color: #666;
+  flex-grow: 1;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+.ingredients {
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 500;
+  line-height: 1.3;
+  display: none;
+  margin-top: 0.5rem;
+  border-top: 1px solid #eee;
+  padding: 1.0rem;
+}
+.btn-toggle {
+  align-self: flex-start;
+  background-color: #e26707;
+  color: white;
   padding: 0.35rem 0.9rem;
   border: none;
   border-radius: 25px;
@@ -18,6 +120,7 @@ footer {
   padding: 0.5rem 0;
   user-select: none;
 }
+
 /* Barra de rolagem para mobile */
 main::-webkit-scrollbar {
   width: 6px;
@@ -30,6 +133,7 @@ main::-webkit-scrollbar-thumb {
   background: #d35400;
   border-radius: 10px;
 }
+
 /* Ajustes para dispositivos móveis */
 @media (max-width: 600px) {
   body {
