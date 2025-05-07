@@ -1,35 +1,54 @@
-/* Novo contêiner para os cartões de receita */
-.recipe-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem; /* Adiciona espaçamento entre os cartões */
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-/* Estilos para os cartões de receita */
-.recipe-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-bottom: 1rem;
-  overflow: hidden;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8f0;
+  color: #333;
+  min-height: 100vh;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  width: calc(33.33% - 1rem); /* 3 cartões na linha superior */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+header h1 {
+  font-size: 2rem;
+  color: #d35400;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 2px #f6b26b;
+}
+header p {
+  font-size: 1rem;
+  color: #7a7a7a;
+  font-weight: 500;
+}
+main {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.recipe-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+/* Novo contêiner para os cartões de receita */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cartões por linha na tela grande */
+  gap: 1rem; /* Espaçamento entre os cartões */
+  width: 100%;
 }
 
-@media (max-width: 600px) {
-  .recipe-card {
-    width: 100%; /* 1 cartão por linha no mobile */
-  }
+@media (max-width: 1000px) {
   .recipe-grid {
-    justify-content: center; /* Centraliza os cartões */
+    grid-template-columns: repeat(2, 1fr); /* 2 por linha em telas médias */
   }
 }
+
+@media (max-width
