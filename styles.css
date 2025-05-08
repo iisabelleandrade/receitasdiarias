@@ -4,7 +4,6 @@
 <title>Receitas Diárias — Delícias para Você</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
   * {
     box-sizing: border-box;
   }
@@ -24,17 +23,19 @@
   
   header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   
   header h1 {
     font-weight: 700;
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     color: #3a3a3a;
     position: relative;
     display: inline-block;
     padding-bottom: 6px;
     user-select: text;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
   }
 
   /* Texto com gradiente e underline animado no título */
@@ -60,15 +61,16 @@
   }
 
   header p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #6b7280;
-    margin-top: 6px;
+    margin-top: 8px;
+    font-style: italic;
     user-select: text;
   }
 
   main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px 30px;
     justify-content: center;
     max-width: 700px;
@@ -78,46 +80,58 @@
 
   article.recipe-card {
     background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: grab;
+  }
+  article.recipe-card:active {
+    cursor: grabbing;
   }
   article.recipe-card:hover,
   article.recipe-card:focus-within {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 30px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 24px 38px rgba(0,0,0,0.15);
   }
 
   .recipe-image {
     width: 100%;
-    height: 170px;
+    height: 180px;
     object-fit: cover;
     user-select: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: transform 0.3s ease;
+  }
+  article.recipe-card:hover .recipe-image,
+  article.recipe-card:focus-within .recipe-image {
+    transform: scale(1.05);
   }
   
   .recipe-content {
-    padding: 14px 20px 24px;
+    padding: 18px 24px 28px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
   }
 
   .recipe-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #111827;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     user-select: text;
+    letter-spacing: 0.03em;
   }
 
   .recipe-desc {
-    font-size: 0.95rem;
-    line-height: 1.3;
+    font-size: 1rem;
+    line-height: 1.4;
     color: #4b5563;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     flex-grow: 1;
     user-select: text;
   }
@@ -126,30 +140,30 @@
     background: linear-gradient(90deg, #ff758c, #ff7eb3);
     border: none;
     outline: none;
-    padding: 10px 24px;
+    padding: 12px 28px;
     font-weight: 700;
-    border-radius: 30px;
+    border-radius: 35px;
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     user-select: none;
-    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.5);
+    box-shadow: 0 6px 18px rgba(255, 117, 140, 0.6);
     transition: background 0.3s ease, box-shadow 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     align-self: flex-start;
   }
   button.btn-toggle:hover,
   button.btn-toggle:focus {
     background: linear-gradient(90deg, #ff7eb3, #ff758c);
-    box-shadow: 0 8px 22px rgba(255, 126, 179, 0.7);
+    box-shadow: 0 10px 30px rgba(255, 126, 179, 0.8);
   }
 
   button.btn-toggle svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     fill: #fff;
     flex-shrink: 0;
     transition: transform 0.3s ease;
@@ -161,33 +175,35 @@
 
   .table-wrapper {
     overflow-x: auto;
-    margin-top: 12px;
-    border-radius: 12px;
-    box-shadow: inset 0 0 8px rgba(255,117,140,0.3);
+    margin-top: 14px;
+    border-radius: 16px;
+    box-shadow: inset 0 0 12px rgba(255,117,140,0.35);
   }
   .table-wrapper::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
   }
   .table-wrapper::-webkit-scrollbar-track {
     background: transparent;
   }
   .table-wrapper::-webkit-scrollbar-thumb {
     background-color: #ff758c;
-    border-radius: 10px;
+    border-radius: 12px;
   }
 
   table.ingredients {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 6px;
     width: max-content;
     min-width: 100%;
     user-select: text;
     background-color: #fff0f4;
-    border-radius: 12px;
+    border-radius: 16px;
+    font-size: 1rem;
   }
 
   th, td {
-    padding: 12px 20px;
-    border: 1px solid #ffbbcc;
+    padding: 14px 24px;
+    border: none;
     color: #9d174d;
     font-weight: 600;
     white-space: nowrap;
@@ -196,6 +212,14 @@
   th {
     background: linear-gradient(90deg, #ff7eb3, #ff758c);
     color: #fff;
+    border-radius: 16px 16px 0 0;
+  }
+  tbody tr {
+    background: #ffd6e8;
+    border-radius: 12px;
+  }
+  tbody tr td {
+    border-radius: 8px;
   }
 
   /* Hide tables by default */
@@ -204,7 +228,7 @@
   }
   table.ingredients.show {
     display: table;
-    animation: fadeIn 0.3s ease forwards;
+    animation: fadeIn 0.35s ease forwards;
   }
 
   @keyframes fadeIn {
@@ -214,19 +238,36 @@
 
   footer {
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #6b7280;
-    margin-top: 28px;
+    margin-top: 32px;
     user-select: none;
   }
 
   @media (max-width: 640px) {
     main {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: 1fr;
       max-width: 350px;
       margin: 0 auto;
     }
     article.recipe-card {
       width: 100%;
+    }
+    .recipe-image {
+      height: 150px;
+    }
+    .recipe-title {
+      font-size: 1.3rem;
+    }
+    .recipe-desc {
+      font-size: 0.95rem;
+    }
+    button.btn-toggle {
+      font-size: 1rem;
+      padding: 10px 24px;
+    }
+    th, td {
+      padding: 12px 16px;
+      font-size: 0.9rem;
     }
   }
