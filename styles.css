@@ -66,22 +66,15 @@
     user-select: text;
   }
 
-  main {
+  /* Container flex column para permitir blocos lado a lado e em linhas abaixo */
+  .recipes-container {
     display: flex;
-    gap: 18px;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 40px 30px;
+    justify-content: center;
+    max-width: 980px; /* Limite max na largura para centralizar bem */
+    margin: 0 auto;
     padding-bottom: 12px;
-  }
-  main::-webkit-scrollbar {
-    height: 8px;
-  }
-  main::-webkit-scrollbar-track {
-    background: #e5e7eb;
-    border-radius: 10px;
-  }
-  main::-webkit-scrollbar-thumb {
-    background: #ff758c;
-    border-radius: 10px;
   }
 
   article.recipe-card {
