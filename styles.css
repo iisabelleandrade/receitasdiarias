@@ -1,4 +1,6 @@
 
+<head>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>Receitas Diárias — Delícias para Você</title>
 <style>
@@ -13,8 +15,8 @@
     background: #f9fafb;
     color: #333;
     margin: 0 auto;
-    max-width: 100vw;
-    padding: 16px 10px 24px;
+    max-width: 700px;
+    padding: 16px 20px 24px;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-font-smoothing: antialiased;
@@ -66,28 +68,19 @@
   }
 
   main {
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px 30px;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
     padding-bottom: 12px;
-  }
-  main::-webkit-scrollbar {
-    height: 8px;
-  }
-  main::-webkit-scrollbar-track {
-    background: #e5e7eb;
-    border-radius: 10px;
-  }
-  main::-webkit-scrollbar-thumb {
-    background: #ff758c;
-    border-radius: 10px;
   }
 
   article.recipe-card {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-    flex: 0 0 300px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -228,25 +221,13 @@
     user-select: none;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 640px) {
+    main {
+      grid-template-columns: repeat(1, 1fr);
+      max-width: 350px;
+      margin: 0 auto;
+    }
     article.recipe-card {
-      flex: 0 0 280px;
-    }
-    .recipe-image {
-      height: 150px;
-    }
-    .recipe-title {
-      font-size: 1.2rem;
-    }
-    .recipe-desc {
-      font-size: 0.9rem;
-    }
-    button.btn-toggle {
-      font-size: 0.9rem;
-      padding: 9px 20px;
-    }
-    th, td {
-      padding: 10px 14px;
-      font-size: 0.85rem;
+      width: 100%;
     }
   }
